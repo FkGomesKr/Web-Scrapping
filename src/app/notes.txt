@@ -139,3 +139,17 @@ const main = async () => {
 }
 
 main();
+
+                    const rev: Review = { //review input for same language
+                        reviewer_name: reviews[1].reviewer.firstName,
+                        comment_pt: reviews[1].comments,
+                        original_language: reviews[1].language,
+                        needed_translation: false,
+                        review_date: reviews[1].createdAt,
+                        picture_url: reviews[1].reviewer.pictureUrl,
+                        rating: reviews[1].rating,
+                        duration_stay: reviews[1].reviewHighlight,
+                        id: reviews[1].id
+                    };
+                    console.log('Captured reviews:', rev);
+                    reviewsData.push(rev);
