@@ -79,7 +79,7 @@ const main = async () => {
     let keyNIds: ToSendBackend = {
         property_id: parseInt(process.argv[4]),
         accomodation_id: parseInt(process.argv[5]),
-        key: process.argv[5]
+        key: process.argv[6]
     }
 
 
@@ -94,8 +94,9 @@ const main = async () => {
                 const reviews = jsonResponse.data.presentation.stayProductDetailPage.reviews.reviews;
 
                 let reviewsSmallArray: Review[] = [];//Array thats gonna have the same content size as the reviews array fetched each time
-
+                let off = 0;
                 for (let ind = 0; ind < reviews.length; ind++) {
+                    let comparableID = parseInt(reviews[ind].id);
                     if (reviews[ind].localizedReview === null) {
                         const rev: Review = { //review input for same language
                             reviewer_name: reviews[ind].reviewer.firstName,
@@ -108,13 +109,13 @@ const main = async () => {
                             duration_stay: reviews[ind].reviewHighlight,
                             id: parseInt(reviews[ind].id)
                         };
-                        if (reviewsSmallArray.length > 0) {
-                            if (last_reviewId >= reviewsSmallArray[reviewsSmallArray.length-1].id ) { 
-                                break;
-                            }
+                        if (last_reviewId >= comparableID) {
+                            off = 1;
+                            break;
+                        } else {
+                            reviewsData.push(rev);
+                            reviewsSmallArray.push(rev);
                         }
-                        reviewsData.push(rev);
-                        reviewsSmallArray.push(rev);
                     } 
                     else {
                         const rev: Review = { //review input for different language
@@ -128,24 +129,26 @@ const main = async () => {
                             duration_stay: reviews[ind].reviewHighlight,
                             id: parseInt(reviews[ind].id)
                         };
-                        if (reviewsSmallArray.length > 0) {
-                            if (last_reviewId >= reviewsSmallArray[reviewsSmallArray.length-1].id ) { 
-                                break;
-                            }
+                        if (last_reviewId >= comparableID) {
+                            off = 1;
+                            break;
+                        } else {
+                            reviewsData.push(rev);
+                            reviewsSmallArray.push(rev);
                         }
-                        reviewsData.push(rev);
-                        reviewsSmallArray.push(rev);
                     }
+                    console.log(comparableID);
                 }
+
                 //send the reviews fetched from AirBnb to the endpoint
-                axios.post("http://localhost:3000/users", reviewsSmallArray).then(response => {
-                    console.log(response)
-                });
+                //axios.post("http://localhost:3000/users", reviewsSmallArray).then(response => {
+                //    console.log(response)
+                //});
 
                 console.log(`Captured ${reviews.length} === ${reviewsSmallArray.length} reviews from network request.`);
-                if (last_reviewId >= reviewsSmallArray[reviewsSmallArray.length-1].id ) { 
-                    page.off('response');  // Remove the listener
-                    stop = 1;
+                if (off) {
+                        page.off('response');  // Remove the listener
+                        stop = 1;
                 }
             } catch (error) {
                 console.error(`Failed to parse JSON response from: ${requestUrl}`, error);
@@ -262,9 +265,9 @@ const main = async () => {
     await page.screenshot({path: "airbnb.jpg"})
     await browser.close();
     
-    axios.post("http://localhost:3000/users", {host, keyNIds}).then(response => {
-        console.log(response)
-    });
+    //axios.post("http://localhost:3000/users", {host, keyNIds}).then(response => {
+      //  console.log(response)
+    //});
 
     // Save the collected reviews data to a JSON file
     fs.writeFileSync('intercepted_reviews.json', JSON.stringify({reviewsData, host, keyNIds}, null, 3));

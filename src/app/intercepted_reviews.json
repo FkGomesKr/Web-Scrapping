@@ -1,27 +1,49 @@
 {
    "reviewsData": [
       {
-         "reviewer_name": "Sullivan",
-         "comment_pt": "A minha estadia correu muito bem.<br/>Recomendo!<br/>Muito obrigada!",
+         "reviewer_name": "Helen",
+         "comment_pt": "Apartamento encantador e acolhedor numa localização excelente. O Frederic foi muito prestativo. Gostei muito da nossa estadia e voltaria a ficar.",
+         "original_language": "en",
+         "needed_translation": true,
+         "review_date": "2024-08-10T14:37:56Z",
+         "picture_url": "https://a0.muscache.com/im/pictures/user/User-503266354/original/3058aa93-7993-45ee-b57d-bd65d13a042c.jpeg",
+         "rating": 5,
+         "duration_stay": "Estadia de cerca de uma semana",
+         "id": 1220239439596795100
+      },
+      {
+         "reviewer_name": "Anna",
+         "comment_pt": "Anfitrião de qualidade, anúncio de fácil acesso perto de todas as comodidades",
          "original_language": "fr",
          "needed_translation": true,
-         "review_date": "2024-08-14T14:15:44Z",
-         "picture_url": "https://a0.muscache.com/im/pictures/user/92614816-f3e9-4005-9d24-680a7b3840b0.jpg",
+         "review_date": "2024-07-15T14:22:00Z",
+         "picture_url": "https://a0.muscache.com/im/pictures/user/User-518120129/original/93d5b2a2-2386-4dbc-b7b4-2cb5d87b1f68.jpeg",
+         "rating": 4,
+         "duration_stay": "Estadia de algumas noites",
+         "id": 1201387253415864600
+      },
+      {
+         "reviewer_name": "Лиза",
+         "comment_pt": "Ótimo espaço para uma estadia. Muito obrigado pela hospitalidade. 😊<br/>Apartamento acolhedor, elegante, acolhedor e leve. Tive umas férias fantásticas em Paris )",
+         "original_language": "ru",
+         "needed_translation": true,
+         "review_date": "2023-12-28T15:24:25Z",
+         "picture_url": "https://a0.muscache.com/im/pictures/user/User-24348623/original/5e70c660-f1d5-4696-bc9b-f014dbb1aba9.jpeg",
          "rating": 5,
-         "duration_stay": "Estadia de uma noite",
-         "id": 1223127363771056000
+         "duration_stay": "Estadia de cerca de uma semana",
+         "id": 1056463520634951800
       }
    ],
    "host": {
-      "host_name": "Raphaël",
-      "host_picUrl": "https://a0.muscache.com/im/pictures/user/e3027851-9df1-4d2b-bdcf-f405a7234994.jpg?im_w=240",
-      "timeAt_airbnb": "3 anos de hospedagem",
-      "media_rating": 4.33,
-      "total_reviews": 109
+      "host_name": "Frédéric",
+      "host_picUrl": "https://a0.muscache.com/im/pictures/user/7a31f3f1-de15-4874-9e4c-ce0804b15cbd.jpg?im_w=240",
+      "timeAt_airbnb": "7 anos de hospedagem",
+      "media_rating": 4.75,
+      "total_reviews": 44
    },
    "keyNIds": {
-      "property_id": 11,
-      "accomodation_id": 22,
-      "key": "22"
+      "property_id": 10,
+      "accomodation_id": 11,
+      "key": "s3cr3tk3y"
    }
 }
